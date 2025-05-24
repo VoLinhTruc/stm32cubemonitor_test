@@ -1,0 +1,329 @@
+[
+    {
+        "id": "7b9ed63e.2138f8",
+        "type": "tab",
+        "label": "Basic_STLink_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor using ST-Link."
+    },
+    {
+        "id": "86b896fbb24565d6",
+        "type": "ui_chartst",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "myChart",
+        "order": 4,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 1040,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9ba158c0e67ad783",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 550,
+        "y": 560,
+        "wires": [
+            [
+                "86b896fbb24565d6"
+            ]
+        ]
+    },
+    {
+        "id": "ffc5953a3a5b0a77",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "e0b6610af4b20a86"
+            ]
+        ]
+    },
+    {
+        "id": "355257a728382468",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "e0b6610af4b20a86"
+            ]
+        ]
+    },
+    {
+        "id": "8c9f0507929bd232",
+        "type": "processing",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "st_link_var_list",
+        "groupid": "e0b6610af4b20a86",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "logformat": "stcm",
+        "x": 560,
+        "y": 420,
+        "wires": [
+            [
+                "86b896fbb24565d6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e0b6610af4b20a86",
+        "type": "variables",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "st_link_var_list",
+        "accesspoint": 0,
+        "execonfig": "a0e63777bda4cf5e",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "blink_count",
+        "triggerthreshold": "",
+        "frequency": "",
+        "frequencyType": "1000",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1748088045167,
+        "openStatus": true,
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "4ef4cac72a5627b9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4ef4cac72a5627b9",
+        "type": "acquisition out",
+        "z": "7b9ed63e.2138f8",
+        "name": "st-link input",
+        "probeconfig": "2e8c5ca6c34bafe2",
+        "x": 1050,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d32a40dad5d3d910",
+        "type": "acquisition in",
+        "z": "7b9ed63e.2138f8",
+        "name": "st-link output",
+        "probeconfig": "2e8c5ca6c34bafe2",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "8c9f0507929bd232"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6e0cd6b4d977ca8d",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Button to Start acquisition",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "be33fc1adb987885",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Button to Stop acquisition",
+        "info": "",
+        "x": 190,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "342b2f51c59a4b27",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Button to Clear acquisition",
+        "info": "",
+        "x": 510,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f8019db759d1e3ac",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "User input the variable list to be monitored",
+        "info": "",
+        "x": 560,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "da6d2356c2b0c908",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Get the value from ST-Link then assign to corresponding Node-Red label",
+        "info": "",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9b51cd88f554309d",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Tell the ST-Link know the variable to be monitor",
+        "info": "",
+        "x": 940,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d46f54532908f904",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "ST-Link return the value",
+        "info": "",
+        "x": 180,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d3d39f1637513211",
+        "type": "comment",
+        "z": "7b9ed63e.2138f8",
+        "name": "Display the value on the chart",
+        "info": "",
+        "x": 1100,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false
+    },
+    {
+        "id": "a0e63777bda4cf5e",
+        "type": "exe-config",
+        "name": "st_link_elf",
+        "exefile": "D:\\learn\\mcu\\stm32\\test\\f103c6t6\\Debug\\stm32f103c6t6.elf",
+        "exefolder": "D:\\learn\\mcu\\stm32\\test\\f103c6t6\\Debug",
+        "exevariablelist": [
+            {
+                "address": "0x08001230",
+                "name": "AHBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x20000028",
+                "name": "blink_count",
+                "type": 6,
+                "checked": true
+            },
+            {
+                "address": "0x20000000",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x2000002c",
+                "name": "uwTick",
+                "type": 5
+            },
+            {
+                "address": "0x20000008",
+                "name": "uwTickFreq",
+                "type": 2
+            },
+            {
+                "address": "0x20000004",
+                "name": "uwTickPrio",
+                "type": 5
+            }
+        ],
+        "expand": true,
+        "filename": "stm32f103c6t6.elf",
+        "exeModifiedTime": 1748087909619,
+        "configLastUpdate": 1748088044838
+    },
+    {
+        "id": "2e8c5ca6c34bafe2",
+        "type": "probe",
+        "probeid": "50FF6F065075555257351587",
+        "probename": "ST-Link v2 50FF6F065075555257351587",
+        "protocol": "SWD",
+        "frequency": "1.8 MHz - Default",
+        "probeproperty": "{\"SWD\":[\"4.6 MHz\",\"1.8 MHz - Default\",\"950 kHz\",\"400 kHz\",\"150 kHz\"],\"JTAG\":[\"18 MHz\",\"9 MHz\",\"4.5 MHz\",\"2.25 MHz\",\"1.12 MHz - Default\",\"560 kHz\",\"280 kHz\",\"140 kHz\"]}",
+        "probeversion": "ST Link firmware version V2.J46",
+        "connectionType": "p2p",
+        "nickname": "st-link v2"
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

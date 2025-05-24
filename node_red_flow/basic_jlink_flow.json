@@ -1,0 +1,422 @@
+[
+    {
+        "id": "818ddbefb72d073e",
+        "type": "tab",
+        "label": "Basic_Jlink_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor using JLink."
+    },
+    {
+        "id": "b4370ee017d4ac6c",
+        "type": "ui_chartst",
+        "z": "818ddbefb72d073e",
+        "group": "f9c34dde.1e2f4",
+        "name": "myChart",
+        "order": 4,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 1040,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3123625ac2b8a716",
+        "type": "ui_button",
+        "z": "818ddbefb72d073e",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "b4370ee017d4ac6c"
+            ]
+        ]
+    },
+    {
+        "id": "a170de7a856e28f7",
+        "type": "ui_button",
+        "z": "818ddbefb72d073e",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "34d5806823969f15"
+            ]
+        ]
+    },
+    {
+        "id": "712f49808a26a33b",
+        "type": "ui_button",
+        "z": "818ddbefb72d073e",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "34d5806823969f15"
+            ]
+        ]
+    },
+    {
+        "id": "df51c510a36873aa",
+        "type": "processing",
+        "z": "818ddbefb72d073e",
+        "groupname": "jlink_var_list",
+        "groupid": "ec9ef34376a2f445",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "logformat": "stcm",
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "b4370ee017d4ac6c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "34d5806823969f15",
+        "type": "variables",
+        "z": "818ddbefb72d073e",
+        "groupname": "jlink_var_list",
+        "accesspoint": 0,
+        "execonfig": "30d589fcbb58551a",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "blink_count",
+        "triggerthreshold": "",
+        "frequency": "",
+        "frequencyType": "1000",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1748088913635,
+        "openStatus": true,
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "c86332ea7397d807"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c86332ea7397d807",
+        "type": "acquisition jlink out",
+        "z": "818ddbefb72d073e",
+        "name": "jlink input",
+        "probeconfig": "1e779c82e2e88746",
+        "x": 1040,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a5177eff4c0acf2c",
+        "type": "acquisition jlink in",
+        "z": "818ddbefb72d073e",
+        "name": "jlink output",
+        "probeconfig": "1e779c82e2e88746",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "df51c510a36873aa"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9cea34dbb5f68b7b",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Button to Start acquisition",
+        "info": "",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9f81b08ba3f69537",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Button to Stop acquisition",
+        "info": "",
+        "x": 170,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b925e3410935f893",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "JLink return the value",
+        "info": "",
+        "x": 160,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e132eefcbb131b34",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Get the value from JLink then assign to corresponding Node-Red label",
+        "info": "",
+        "x": 570,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "604614d289f7f4d6",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Display the value on the chart",
+        "info": "",
+        "x": 1100,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "76cdbd6dc6f61079",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Button to Clear acquisition",
+        "info": "",
+        "x": 550,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cc0c824da8018a04",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "User input the variable list to be monitored",
+        "info": "",
+        "x": 540,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1afc615e13ef785a",
+        "type": "comment",
+        "z": "818ddbefb72d073e",
+        "name": "Tell the JLink know the variable to be monitor",
+        "info": "",
+        "x": 1030,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false
+    },
+    {
+        "id": "30d589fcbb58551a",
+        "type": "exe-config",
+        "name": "jlink_elf",
+        "exefile": "D:\\learn\\mcu\\stm32\\test\\STM32_Learning_HAL_Driver\\stm32f407vet6_1\\Debug\\stm32f407vet6.elf",
+        "exefolder": "D:\\learn\\mcu\\stm32\\test\\STM32_Learning_HAL_Driver\\stm32f407vet6_1\\Debug",
+        "exevariablelist": [
+            {
+                "address": "0x08001d54",
+                "name": "AHBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x20000070",
+                "name": "blink_count",
+                "type": 6,
+                "checked": true
+            },
+            {
+                "address": "0x20000060",
+                "name": "hadc1.DMA_Handle",
+                "type": 5
+            },
+            {
+                "address": "0x2000006c",
+                "name": "hadc1.ErrorCode",
+                "type": 5
+            },
+            {
+                "address": "0x2000002c",
+                "name": "hadc1.Init.ClockPrescaler",
+                "type": 5
+            },
+            {
+                "address": "0x20000040",
+                "name": "hadc1.Init.ContinuousConvMode",
+                "type": 2
+            },
+            {
+                "address": "0x20000034",
+                "name": "hadc1.Init.DataAlign",
+                "type": 5
+            },
+            {
+                "address": "0x20000048",
+                "name": "hadc1.Init.DiscontinuousConvMode",
+                "type": 2
+            },
+            {
+                "address": "0x20000058",
+                "name": "hadc1.Init.DMAContinuousRequests",
+                "type": 2
+            },
+            {
+                "address": "0x2000003c",
+                "name": "hadc1.Init.EOCSelection",
+                "type": 5
+            },
+            {
+                "address": "0x20000050",
+                "name": "hadc1.Init.ExternalTrigConv",
+                "type": 5
+            },
+            {
+                "address": "0x20000054",
+                "name": "hadc1.Init.ExternalTrigConvEdge",
+                "type": 5
+            },
+            {
+                "address": "0x20000044",
+                "name": "hadc1.Init.NbrOfConversion",
+                "type": 5
+            },
+            {
+                "address": "0x2000004c",
+                "name": "hadc1.Init.NbrOfDiscConversion",
+                "type": 5
+            },
+            {
+                "address": "0x20000030",
+                "name": "hadc1.Init.Resolution",
+                "type": 5
+            },
+            {
+                "address": "0x20000038",
+                "name": "hadc1.Init.ScanConvMode",
+                "type": 5
+            },
+            {
+                "address": "0x20000028",
+                "name": "hadc1.Instance",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000064",
+                "name": "hadc1.Lock",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x2000005c",
+                "name": "hadc1.NbrOfCurrentConversionRank",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000068",
+                "name": "hadc1.State",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000000",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x20000074",
+                "name": "uwTick",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000008",
+                "name": "uwTickFreq",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000004",
+                "name": "uwTickPrio",
+                "type": 5,
+                "checked": false
+            }
+        ],
+        "expand": false,
+        "filename": "stm32f407vet6.elf",
+        "exeModifiedTime": 1748088190042,
+        "configLastUpdate": 1748088913295
+    },
+    {
+        "id": "1e779c82e2e88746",
+        "type": "probejlink",
+        "probeid": "69660054",
+        "probename": "jlink (69660054)",
+        "mcuname": "STM32F407VE",
+        "nickname": "jlink"
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
